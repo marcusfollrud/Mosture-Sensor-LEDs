@@ -15,6 +15,10 @@ LED5 - RED
 Connect the Soil Mosture Sensor to anolog input pin 0, 
 and your 5 led to digital out 2-6
 
+//Adding logic for starting / stopping an motor for watering the plansts.
+
+
+
 */
 int led1 = 2;
 int led2 = 3;
@@ -83,5 +87,11 @@ else if (sensorValue >= 0 && sensorValue < 250)
  digitalWrite(led4, LOW);
  digitalWrite(led5, LOW);
 }
-  delay(1000);        // delay 1 second between reads
+if (sensorValue >= 820){
+  delay(30000);        // delay 300 second between reads
+}
+else
+{
+  delay(1000); //Check more repeatedly to not overflow the plant
+}
 }
